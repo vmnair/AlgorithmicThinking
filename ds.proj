@@ -1,0 +1,36 @@
+
+#!/bin/bash
+
+# tmux setup for datastructure learning 
+
+tmux has-session -t  DS
+
+if [ $? != 0 ]
+then
+
+# Neovim 
+tmux new-session -s DS -n AlgoThinking -d 
+tmux send-keys -t DS 'cd ~/Projects/AlgoThinking' C-m 
+tmux send-keys -t DS 'vim main.c' C-m
+
+# Console Window
+tmux new-window -n Console -t DS
+tmux send-keys -t DS:2  'cd ~/Projects/AlgoThinking' C-m
+tmux send-keys -t DS:2  'clear' C-m
+
+
+# Lazygit
+tmux new-window -n Lazygit -t DS
+
+tmux send-keys -t TermContacts:3  'lazygit' C-m
+
+# Select the Neovim window
+tmux select-window -t DS:1
+tmux select-pane -t DS:1.1    
+fi
+
+# No running session, so start a new session 
+tmux attach -t DS
+
+
+
