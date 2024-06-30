@@ -19,6 +19,9 @@ int identical_left(int snow1[], int snow2[], int start);
  */
 int are_identical(int snow1[], int snow2[]);
 
+
+
+
 int main(int argc, char *argv[]) {
   printf("Welcome to Algorithmic Thinking!\n");
   static int snowflakes[ARR_SIZE][SNOW_FLAKE_SIZE];
@@ -34,6 +37,9 @@ int main(int argc, char *argv[]) {
   identify_identical(snowflakes, n);
   return 0;
 }
+
+
+/* Helper functions */
 
 void identify_identical(int snowflakes[][SNOW_FLAKE_SIZE], int n) {
   int i, j;
